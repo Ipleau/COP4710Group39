@@ -1,105 +1,107 @@
-import React from "react";
-import {observer} from 'mobx-react';
+import logo from './logo.svg';
+import React, {useState, useEffect } from "react";
 import './App.css';
-import UserStores from './stores/UserStores';
-import LoginInfo from './LoginInfo';
-import Submit from './Submit';
+import fire from './fire';
+import Login from './Login';
+import LandingPage from './LandingPage';
+const App = () => {
+  const [user, setUser] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [emailError, setEmailError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  const [hasAccount, setHasAccount] = useState(false);
 
-class App extends React.Component {
+  const clearInputs = () => {
+    setEmail('');
+    setPassword('');
+  }
 
-	async componentDidMount()
-	{
-		try{
-			let res = await fetch('/isLoggedIn', {
-				method: 'post',
-				headers: {
-					'Accept': 'applictaion/json',
-					'Content-Type': 'application/json'
-				}
-			});
+  const clearErrors = () => {
+    setEmailError('');
+    setPasswordError('');
+  }
 
-			let result = await res.json();
-			if(result && result.success)
-			{
-				UserStores.loading = false;
-				UserStores.isLoggedIn = true;
-				UserStores.username = result.username;
-			}
-			else
-			{
-				UserStores.loading = false;
-				UserStores.isLoggedIn = false;
-			}
-		}
-		catch(e)
-		{
-			UserStores.loading = false;
-			UserStores.isLoggedIn = false;
-		}
-	}
+  const handleLogin = () => {
+    clearErrors();
+    fire
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .catch(err => {
+        switch(err.code){
+          case "auth/invalid-email":
+          case "auth/user-disabled":
+          case "auth/user-not-found":
+            setEmailError(err.message);
+            break;
+          case "auth/wrong-password":
+            setPasswordError(err.message);
+            break;
+        }
+      });
+  };
 
-	async doLogout()
-	{
-		try
-		{
-			let res = await fetch('/logout', {
-				method: 'post',
-				headers: {
-					'Accept': 'applictaion/json',
-					'Content-Type': 'application/json'
-				}
-			});
+  const handleSignup = () => {
+    clearErrors();
+    fire
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .catch(err => {
+        switch(err.code){
+          case "auth/email-already-in-use":
+          case "auth/invalid-email":
+            setEmailError(err.message);
+            break;
+          case "auth/weak-password":
+            setPasswordError(err.message);
+            break;
+        }
+      });
+  }
 
-			let result = await res.json();
-			if(result && result.success)
-			{
-				UserStores.isLoggedIn = false;
-				UserStores.username = '';
-			}
-		}
-		catch(e)
-		{
-			console.log(e)
-		}
-	}
+  const handleLogout = () => {
+    fire.auth().signOut();
+  };
 
-	render() 
-	{
-		if(UserStores.loading)
-		{
-			return(
-    			<div className="app">
-    				<div className = 'container'>
-    					loading
-    				</div>
-    			</div>
-    		);
-		}
-		if(UserStores.isLoggedIn)
-		{
-			return(
-    			<div className="app">
-    				<div className = 'container'>
-    					Welcome {UserStores.username}
+  const authListener = () => {
+    fire.auth().onAuthStateChanged(user => {
+      if(user){
+        clearInputs();
+        setUser(user);
+      }
+      else
+      {
+        setUser("");
+      }
+    })
+  };
 
-    					<Submit
-    						text={'Log out'}
-    						disabled = {false}
-    						onClick = { () => this.doLogout() }
-    						/>
-    				</div>
-    			</div>
-    		);
-		}
-		return(
-    		<div className="app">
-    		
-    			<LoginInfo />
-    		</div>
-    	);
+  useEffect(() => {
+    authListener();
+  }, []);
 
-	}
-  
+  return (
+    <div className="App">
+      {user ? (
+      <LandingPage 
+      handleLogout = {handleLogout}
+      />
+      ) : (
+      <Login 
+      email = {email} 
+      setEmail = {setEmail} 
+      password = {password} 
+      setPassword = {setPassword} 
+      handleLogin = {handleLogin} 
+      handleSignup = {handleSignup}
+      hasAccount = {hasAccount}
+      setHasAccount = {setHasAccount}
+      emailError = {emailError}
+      passwordError = {passwordError}
+      />
+
+      )}    </div>
+  );
 }
 
-export default observer(App);
+export default App;
