@@ -152,7 +152,7 @@ button {
 }
 
 
-.SuperAdmin {
+.SuperAdmin{
   width: 100%;
   min-height: 100vh;
   background: radial-gradient(
@@ -211,4 +211,52 @@ button {
   width: 86px;
   padding: 8px 0;
   background: #000000;
+}
+
+.CreateEvent {
+  width: 100%;
+  min-height: 100vh;
+  background: radial-gradient(
+    ellipse at left bottom,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.9) 59%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
+}
+
+ .CreateEvent nav {
+  background: #B7A369;
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.CreateEvent nav h2 {
+  color: #fff;
+}
+
+ .CreateEvent nav button {
+  width: 86px;
+  padding: 8px 0;
+  background: #000000;
+}
+
+.CreateEvent .formBox label {
+  color: #ffffff;
+  align-items: center;
+}
+
+.CreateEvent .formBox input {
+  color: #000000;
+  width :100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+
+}
+
+ #Description {
+  min-height: 200px;
 }

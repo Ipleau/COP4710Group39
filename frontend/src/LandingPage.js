@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Switch, Link, Redirect} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch, NavLink, Redirect} from "react-router-dom";
 
 const LandingPage = ({handleLogout}) => {
 	return(
@@ -9,9 +9,9 @@ const LandingPage = ({handleLogout}) => {
 				<button onClick={handleLogout}> Logout </button>
 			</nav>
 			<body>
-				<Link exact to="/SuperAdmin" className="btn btn-primary">SuperAdmin</Link>
-				<Link exact to="/Admin" className="btn btn-primary">Admin</Link>
-				<Link exact to="/Student" className="btn btn-primary">Student</Link>
+				<NavLink exact to="/SuperAdmin" className="main-nav" activeClassName="main-nav-active">SuperAdmin</NavLink>
+				<NavLink exact to="/Admin" className="main-nav" activeClassName="main-nav-active">Admin</NavLink>
+				<NavLink exact to="/Student" className="main-nav" activeClassName="main-nav-active">Student</NavLink>
 			</body>
 		</section>
 		)

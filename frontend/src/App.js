@@ -7,6 +7,7 @@ import LandingPage from './LandingPage';
 import Admin from './Admin';
 import SuperAdmin from './SuperAdmin';
 import Student from './Student';
+import CreateEvent from './CreateEvent';
 
 import {
   BrowserRouter as Router, Route, Link, useHistory
@@ -103,6 +104,9 @@ const App = () => {
       <LandingPage 
       handleLogout = {handleLogout}
       />
+      </Route>
+      <Route exact path = '/CreateEvent'>
+      <CreateEvent/>
       </Route>
 
       <Route exact path = '/'>
