@@ -4,6 +4,13 @@ import './App.css';
 import fire from './fire';
 import Login from './Login';
 import LandingPage from './LandingPage';
+import Admin from './Admin';
+import SuperAdmin from './SuperAdmin';
+import Student from './Student';
+
+import {
+  BrowserRouter as Router, Route, Link, useHistory
+} from "react-router-dom";
 const App = () => {
   const [user, setUser] = useState('');
   const [email, setEmail] = useState('');
@@ -23,6 +30,7 @@ const App = () => {
   }
 
   const handleLogin = () => {
+
     clearErrors();
     fire
       .auth()
@@ -39,13 +47,19 @@ const App = () => {
             break;
         }
       });
+      history.push('LandingPage')
   };
+  const history = useHistory();
 
+  const handleHistory = () => {
+    history.push("login");
+  };
   const handleSignup = () => {
     clearErrors();
     fire
       .auth()
       .createUserWithEmailAndPassword(email, password)
+
       .catch(err => {
         switch(err.code){
           case "auth/email-already-in-use":
@@ -61,6 +75,7 @@ const App = () => {
 
   const handleLogout = () => {
     fire.auth().signOut();
+    history.push('/')
   };
 
   const authListener = () => {
@@ -81,12 +96,17 @@ const App = () => {
   }, []);
 
   return (
+    
     <div className="App">
-      {user ? (
+      <Route exact path = '/LandingPage'>
+
       <LandingPage 
       handleLogout = {handleLogout}
       />
-      ) : (
+      </Route>
+
+      <Route exact path = '/'>
+
       <Login 
       email = {email} 
       setEmail = {setEmail} 
@@ -99,8 +119,27 @@ const App = () => {
       emailError = {emailError}
       passwordError = {passwordError}
       />
+      </Route>
 
-      )}    </div>
+      )}
+    
+      <Route exact path = '/Admin'>
+      <Admin
+      handleLogout = {handleLogout}
+      />
+      </Route>
+      <Route exact path = '/SuperAdmin'>
+      <SuperAdmin
+      handleLogout = {handleLogout}
+      />
+      </Route>
+      <Route exact path = '/Student'>
+      <Student
+      handleLogout = {handleLogout}
+      />
+      </Route>
+
+    </div>
   );
 }
 

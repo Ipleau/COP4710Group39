@@ -120,3 +120,95 @@ button {
   padding: 8px 0;
   background: #000000;
 }
+
+.Admin {
+  width: 100%;
+  min-height: 100vh;
+  background: radial-gradient(
+    ellipse at left bottom,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.9) 59%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
+}
+
+.Admin nav {
+  background: #B7A369;
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Admin nav h2 {
+  color: #fff;
+}
+
+.Admin nav button {
+  width: 86px;
+  padding: 8px 0;
+  background: #000000;
+}
+
+
+.SuperAdmin {
+  width: 100%;
+  min-height: 100vh;
+  background: radial-gradient(
+    ellipse at left bottom,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.9) 59%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
+}
+
+.SuperAdmin nav {
+  background: #B7A369;
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.SuperAdmin nav h2 {
+  color: #fff;
+}
+
+.SuperAdmin nav button {
+  width: 86px;
+  padding: 8px 0;
+  background: #000000;
+}
+
+
+.Student {
+  width: 100%;
+  min-height: 100vh;
+  background: radial-gradient(
+    ellipse at left bottom,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.9) 59%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
+}
+
+.Student nav {
+  background: #B7A369;
+  width: 100%;
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Student nav h2 {
+  color: #fff;
+}
+
+.Student nav button {
+  width: 86px;
+  padding: 8px 0;
+  background: #000000;
+}
