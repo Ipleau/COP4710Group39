@@ -7,7 +7,7 @@ const SuperAdmin = ({handleLogout}) => {
 			<nav>
 				<h2>SuperAdmin Event Planning</h2>
 				<button onClick={handleLogout}> Logout </button>
-				<NavLink exact to="/CreateEvent" className="main-nav" activeClassName="main-nav-active">CreateEvent</NavLink>
+				<NavLink exact to="/CreateEvent" className="main-nav" activeClassName="main-nav-active">Create Event</NavLink>
 
 			</nav>
 		</section>

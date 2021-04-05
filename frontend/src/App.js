@@ -8,6 +8,8 @@ import Admin from './Admin';
 import SuperAdmin from './SuperAdmin';
 import Student from './Student';
 import CreateEvent from './CreateEvent';
+import CreateRSO from './CreateRSO';
+import ViewEvents from './ViewEvents';
 
 import {
   BrowserRouter as Router, Route, Link, useHistory
@@ -108,7 +110,12 @@ const App = () => {
       <Route exact path = '/CreateEvent'>
       <CreateEvent/>
       </Route>
-
+      <Route exact path = '/CreateRSO'>
+      <CreateRSO/>
+      </Route>
+      <Route exact path = '/ViewEvents'>
+      <ViewEvents/>
+      </Route>
       <Route exact path = '/'>
 
       <Login 
