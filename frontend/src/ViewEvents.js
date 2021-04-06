@@ -1,19 +1,14 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Switch, NavLink, Redirect} from "react-router-dom";
 
-const ViewEvents = ({handleLogout}) => {
+const LandingPage = ({handleLogout}) => {
 	return(
-		<section className = "ViewEvents">
-			<nav>
-				<h2>Event List</h2>
-				<button onClick={handleLogout}> Logout </button>
-			</nav>
-			<body>
+		<div>
+			
+			
 
-			</body>
-		</section>
-		)
+		</div>
+	)
 
 }
 
-export default ViewEvents;
+export default LandingPage;

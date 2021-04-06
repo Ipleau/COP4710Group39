@@ -16,6 +16,9 @@ Student Home Page
 	-Join RSO (Dropdown)
 	-Select University (Dropdown)
 	-Create RSO (Go to Create RSO page)
+University
+	- name
+	- location
 Create Event Page
 	-Admin or Above
 	-University
