@@ -1,14 +1,15 @@
 import React from 'react';
+import {BrowserRouter as Router, Route, Switch, NavLink, Redirect} from "react-router-dom";
 
-const LandingPage = ({handleLogout}) => {
+const ViewEvents = ({handleLogout}) => {
 	return(
-		<div>
-			
-			
+		<section className = "ViewEvents">
+			<body>
 
-		</div>
-	)
+			</body>
+		</section>
+		)
 
 }
 
-export default LandingPage;
+export default ViewEvents;

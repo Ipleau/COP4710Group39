@@ -10,6 +10,8 @@ import Student from "./views/Student";
 import CreateEvent from "./CreateEvent";
 import CreateRSO from "./CreateRSO";
 import ViewEvents from "./ViewEvents";
+import CreateUniversity  from "./CreateUniversity";
+
 
 import Navbar from './components/Navbar'
 import { Provider } from "react-redux";
@@ -120,6 +122,9 @@ const App = () => {
         </Route>
         <Route exact path="/CreateRSO">
           <CreateRSO />
+        </Route>
+         <Route exact path="/CreateUniversity">
+          <CreateUniversity />
         </Route>
         <Route exact path="/ViewEvents">
           <ViewEvents />

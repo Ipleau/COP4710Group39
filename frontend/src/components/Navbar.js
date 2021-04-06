@@ -11,11 +11,11 @@ import { useLocation, NavLink } from "react-router-dom";
 */
 
 const tabs = [
-  [{ name: "Create University", route: "/create-university" }],
-  [{ name: "Create Event", route: "/create-event" }],
+  [{ name: "Create University", route: "/CreateUniversity" }],
+  [{ name: "Create Event", route: "/CreateEvent" }],
   [
-    { name: "Create RSO", route: "/create-rso" },
-    { name: "View Events", route: "/view-event" },
+    { name: "Create RSO", route: "/CreateRSO" },
+    { name: "View Events", route: "/ViewEvent" },
   ],
 ];
 
@@ -43,7 +43,7 @@ function Navbar({ handleLogout, role }) {
           className="main-nav"
           activeClassName="main-nav-active"
         >
-          SuperAdmin
+          Super Admin
         </NavLink>
         <NavLink
           exact

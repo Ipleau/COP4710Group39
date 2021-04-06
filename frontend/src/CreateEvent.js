@@ -25,9 +25,14 @@ const Category = [
   { label: "FSU", value: "FSU" },
 ];
 
+const Privacy = [
+  { label: "Private", value: "Private" },
+  { label: "Public", value: "Public" },
+  { label: "RSO", value: "RSO" }
+];
 const CreateEvent = ({ handleLogout }) => {
     const dispatch = useDispatch()
-    const [input, setInput] = React.useState({ title: '', description: '', university: null, rso: null, category: null, time: '', date: '', phone: '', email: '' })
+    const [input, setInput] = React.useState({ title: '', description: '', university: null, rso: null, category: null, time: '', date: '', phone: '', email: '' , pricacy: null})
 
     const onSubmit = React.useCallback(e => {
         e.preventDefault()
@@ -38,13 +43,7 @@ const CreateEvent = ({ handleLogout }) => {
     }, [input, dispatch])
 
     const handleInputChange = React.useCallback(key => e => {
-        /*
-            obj = { key1: 'abc', key2: '123' }
-            ...obj => key1: 'abc', key2: '123'
-
-            obj = { ...obj, key1: 'vhc' }
-            { key1: 'vhc', key2: '123' }
-        */
+        
        const value = e?.target?.value ?? e
 
         setInput({ ...input, [key]: value })
@@ -92,6 +91,10 @@ const CreateEvent = ({ handleLogout }) => {
           <div class="formBox">
             <label for="Email">Email</label>
             <input type="text" id="Email" placeholder="Email" value={input.email} onChange={handleInputChange('email')} />
+          </div>
+          <div class="formBox">
+            <label for="Privacy">Privacy</label>
+            <input type="text" id="Privacy" placeholder="Privacy" value={input.privacy} onChange={handleInputChange('privacy')} />
           </div>
           <div class="formBox">
             <button id="btn" type='submit'>Click to Add</button>
