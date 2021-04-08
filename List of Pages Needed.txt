@@ -1,16 +1,18 @@
 List of Pages Needed:
-Registration
-	-Select Role (Dropdown)
-	-Gives userID and Password (???)
-	-Go to Login
-Login
--User ID (text)
--Password (text)
 
-Admin Home Page
-	-Create Event (Go to Create Event Page)
-	-Select University (Dropdown)
-	-Select RSO/s (Dropdown)
+Completed:
+		Registration
+			-Select Role (Dropdown)
+			-Gives userID and Password (???)
+			-Go to Login
+		Login
+		-User ID (text)
+		-Password (text)
+		Admin Home Page
+			-Create Event (Go to Create Event Page)
+			-Select University (Dropdown)
+			-Select RSO/s (Dropdown)
+
 Student Home Page
 	-View Events (Go to Events List)
 	-Join RSO (Dropdown)

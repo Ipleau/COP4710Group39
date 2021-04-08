@@ -39,7 +39,7 @@ const CreateUniversity = ({ handleLogout }) => {
       <div style={{ maxWidth: 520, margin: '16px auto' }}>
         <form onSubmit={onSubmit}>
           <div class="formBox">
-            <label for="title">RSO Title</label>
+            <label for="title">University Name</label>
             <input type="text" id="title" placeholder="RSO Description" value={input.title} onChange={handleInputChange('title')} />
           </div>
           <div class="formBox">

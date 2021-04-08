@@ -8,6 +8,8 @@ import {
 } from "react-router-dom";
 import Select from "react-select";
 
+import { useDispatch } from "react-redux";
+import { updateUser } from "../store/actions/userActions";
 const RSO = [
   { label: "UCF", value: "UCF" },
   { label: "FSU", value: "FSU" },
@@ -19,6 +21,24 @@ const Universities = [
 ];
 
 const Student = ({ handleLogout }) => {
+  const dispatch = useDispatch()
+    const [input, setInput] = React.useState({ email: '', rso: null, university: null, scopes: null })
+
+    const onSubmit = React.useCallback(e => {
+        e.preventDefault()
+
+        console.log(input)
+        
+        dispatch(updateUser(input))
+    }, [input, dispatch])
+
+    const handleInputChange = React.useCallback(key => e => {
+        
+       const value = e?.target?.value ?? e
+
+        setInput({ ...input, [key]: value })
+    }, [input])
+
   return (
     <section className="Student">
       <nav>
@@ -43,25 +63,25 @@ const Student = ({ handleLogout }) => {
           View Events
         </NavLink>
 
-        <form>
+        <form onSubmit = {onSubmit}>
           <div class="formBox">
             <label for="RSO">RSO</label>
-            <Select options={RSO} />
+            <Select options={RSO} value={input.rso} onChange={handleInputChange('rso')} />          
           </div>
           <div class="formBox">
-            <button id="btn">Set RSO</button>
+            <button id="btn" type = 'submit'>Set RSO</button>
           </div>
           <div id="msg">
             <pre></pre>
           </div>
         </form>
-        <form>
+        <form onSubmit = {onSubmit}>
           <div class="formBox">
             <label for="University">Select University</label>
-            <Select options={Universities} />
-          </div>
+            <Select options={Universities} value={input.university} onChange={handleInputChange('university')} />          
+            </div>
           <div class="formBox">
-            <button id="btn">Set University</button>
+            <button id="btn" type='submit'>Set University</button>
           </div>
           <div id="msg">
             <pre></pre>

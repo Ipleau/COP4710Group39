@@ -1,8 +1,19 @@
 import React from 'react';
-
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Link,
+  Redirect,
+} from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { createUser } from "./store/actions/userActions";
 
 const Login = (props) => {
 	const {email, setEmail, password, setPassword, handleLogin, handleSignup, hasAccount, setHasAccount, emailError, passwordError} = props;
+	const dispatch = useDispatch()
+	const [input, setInput] = React.useState({ email: '', rso: null, university: null, scopes: null })
+
 	return(
 		<section className = "login">
 			<div className= "loginContainer">

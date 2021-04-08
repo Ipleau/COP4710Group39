@@ -11,6 +11,11 @@ import CreateEvent from "./CreateEvent";
 import CreateRSO from "./CreateRSO";
 import ViewEvents from "./ViewEvents";
 import CreateUniversity  from "./CreateUniversity";
+import { DropdownButton, Dropdown } from "react-bootstrap";
+import Select from "react-select";
+
+import { useDispatch } from "react-redux";
+import { createUser } from "./store/actions/userActions";
 
 
 import Navbar from './components/Navbar'
@@ -23,6 +28,8 @@ import {
   Link,
   useHistory,
 } from "react-router-dom";
+
+
 const App = () => {
   const [user, setUser] = useState("");
   const [email, setEmail] = useState("");
@@ -30,6 +37,7 @@ const App = () => {
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [hasAccount, setHasAccount] = useState(false);
+  
 
   const clearInputs = () => {
     setEmail("");
@@ -60,7 +68,7 @@ const App = () => {
             break;
         }
       });
-    history.push("LandingPage");
+    history.push("/LandingPage");
   };
   const history = useHistory();
 
@@ -72,7 +80,6 @@ const App = () => {
     fire
       .auth()
       .createUserWithEmailAndPassword(email, password)
-
       .catch((err) => {
         switch (err.code) {
           case "auth/email-already-in-use":

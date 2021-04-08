@@ -1,0 +1,20 @@
+Updated List of pages and completion
+
+TODO:
+	Login: redirect based of user scope(admin, student, superadmin)
+	Registration: Create the User Object
+	Student: Update Works?
+	Admin: Add updating
+	ViewEvents: 0% done
+	CreateRSO: update Creator to Admin Status and set as RSO
+
+	
+	Stretch:
+	Location based info for CreateEvent
+	Social media integration
+
+Done:
+	SuperAdmin?
+	CreateUniversity
+	CreateEvent
+	Logout
