@@ -22,7 +22,7 @@ const Universities = [
 
 const Student = ({ handleLogout }) => {
   const dispatch = useDispatch()
-    const [input, setInput] = React.useState({ email: '', rso: null, university: null, scopes: null })
+    const [input, setInput] = React.useState({rso: null, university: null})
 
     const onSubmit = React.useCallback(e => {
         e.preventDefault()

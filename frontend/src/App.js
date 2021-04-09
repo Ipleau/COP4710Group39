@@ -31,6 +31,7 @@ import {
 
 
 const App = () => {
+  const dispatch = useDispatch()
   const [user, setUser] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -80,6 +81,11 @@ const App = () => {
     fire
       .auth()
       .createUserWithEmailAndPassword(email, password)
+      .then((user) => {
+        /* user handler */
+        dispatch(createUser({uid: user.user.uid, email, scopes: 'student'}))
+
+      })
       .catch((err) => {
         switch (err.code) {
           case "auth/email-already-in-use":
@@ -114,13 +120,11 @@ const App = () => {
       unsubscribe()
     }
   }, [])
-
   return (
-    <Provider store={store}>
+
+    <>
       <Navbar handleLogout={handleLogout} />
 
-      {/* content */}
-      <div>
         <Route exact path="/LandingPage">
           <LandingPage handleLogout={handleLogout} />
         </Route>
@@ -159,8 +163,7 @@ const App = () => {
         <Route exact path="/Student">
           <Student handleLogout={handleLogout} />
         </Route>
-      </div>
-    </Provider>
+    </>
   );
 };
 
