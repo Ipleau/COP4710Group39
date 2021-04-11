@@ -1,4 +1,7 @@
 import { useLocation, NavLink } from "react-router-dom";
+import Select from "react-select";
+import React from "react";
+
 
 /*
 
@@ -18,16 +21,28 @@ const tabs = [
     { name: "View Events", route: "/ViewEvent" },
   ],
 ];
+const scopes = [
+  { label: "Student", value: 0 },
+  { label: "Admin", value: 1 },
+  { label: "SuperAdmin", value: 2 },
+];
 
 function Navbar({ handleLogout, role }) {
+  const[input, setInput] = React.useState({value: 0})
+  console.log(input)
   return (
+
     <div className="navigation">
       <nav style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <h2>Event Planning</h2>
         <button onClick={handleLogout}>Logout</button>
+        <div class="formBox" >
+            <label for="University">University</label>
+            <Select options={scopes} value={input} onChange = {e => setInput(e)} />
+        </div>
       </nav>
       <div className="navbar">
-        {tabs[role || 0].map((tab) => (
+        {tabs[role || input.value].map((tab) => (
           <NavLink
             exact
             to={tab.route}
@@ -37,30 +52,6 @@ function Navbar({ handleLogout, role }) {
             {tab.name}
           </NavLink>
         ))}
-        <NavLink
-          exact
-          to="/SuperAdmin"
-          className="main-nav"
-          activeClassName="main-nav-active"
-        >
-          Super Admin
-        </NavLink>
-        <NavLink
-          exact
-          to="/Admin"
-          className="main-nav"
-          activeClassName="main-nav-active"
-        >
-          Admin
-        </NavLink>
-        <NavLink
-          exact
-          to="/Student"
-          className="main-nav"
-          activeClassName="main-nav-active"
-        >
-          Student
-        </NavLink>
       </div>
     </div>
   );

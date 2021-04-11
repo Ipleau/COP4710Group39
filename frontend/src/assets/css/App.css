@@ -385,3 +385,17 @@ button {
   box-sizing: border-box;
 
 }
+
+.Navbar .navigation .formBox label {
+  color: #ffffff;
+  align-items: center;
+}
+
+.Navbar .navigation .formBox input {
+  color: #000000;
+  width :100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+
+}
