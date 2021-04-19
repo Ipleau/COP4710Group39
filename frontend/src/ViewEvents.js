@@ -9,6 +9,8 @@ import { readEvents } from "./store/actions/eventActions";
 const GrabEvents = () =>
 {
   	const [events] = useSelector(state => [state.events])
+  	          	console.log(events)
+
   	return(
   		<table className="table">
           <thead className="thead-light">
@@ -26,10 +28,9 @@ const GrabEvents = () =>
             </tr>
           </thead>
           <tbody>
-          {Object.keys(events).map(k=> {
-          	const event = events[k]
+          {events.map((event,i)=> {
           	return(
-          		<tr key={k}>
+          		<tr key={i}>
           			<th>{event.title}</th>
           			<th>{event.description}</th>
           			<th>{event.university.value}</th>

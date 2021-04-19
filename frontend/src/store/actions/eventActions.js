@@ -20,12 +20,9 @@ export const readEvents = () => dispatch => {
 		method: 'get',
 		url: `http://localhost:5000/events/`,
 	}).then((resp) => {
-		const data = resp.data.reduce((o,r) => {
-			o[r.id] = r
-			return o
-		}, {})
 
-		dispatch({ type: types.EVENTS_READ_SUCCESS, payload: data })
+
+		dispatch({ type: types.EVENTS_READ_SUCCESS, payload: resp.data })
 		return Promise.resolve('event read | all good')
 	})
 	.catch(error => {
