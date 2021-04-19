@@ -17,8 +17,9 @@ const Universities = [
   { label: "FSU", value: "FSU" },
 ];
 const RSO = [
-  { label: "UCF", value: "UCF" },
-  { label: "FSU", value: "FSU" },
+  { label: "Gaming Knights", value: "Gaming Knights" },
+  { label: "3D Printing and Design", value: "3D Printing and Design" },
+  {label:"Yoga Buddy", value: "Yoga Buddy"}
 ];
 const Category = [
   { label: "Casual", value: "Casual" },
