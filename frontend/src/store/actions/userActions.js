@@ -4,8 +4,8 @@ import types from '../types.json'
 export const createUser = data => dispatch => {
 	return axios({
 	method: 'post',
-	url: `${process.env.REACT_APP_BACK_END_URL}/api/Events`,
-	data: {...data, rso: null, univesity: null}
+	url: `http://localhost:5000/users/add`,
+	data: {...data, rso: null, university: null}
 	}).then(resp => {
 	dispatch({ type: types.USER_CREATE_SUCCESS, payload: data })
 	return Promise.resolve(`Created event ${resp.data.number}.`)

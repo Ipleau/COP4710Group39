@@ -2,17 +2,17 @@ import axios from 'axios'
 import types from '../types.json'
 
 export const createEvent = data => dispatch => {
-	// return axios({
-	// 	method: 'post',
-	// 	url: `${process.env.REACT_APP_BACK_END_URL}/api/Events`,
-	// 	data
-	// }).then(resp => {
-		return dispatch({ type: types.EVENT_CREATE_SUCCESS, payload: data })
-	// 	return Promise.resolve(`Created event ${resp.data.number}.`)
-	// }).catch(error => {
-	// 	dispatch({ type: types.EVENT_CREATE_FAILURE, error })
-	// 	return Promise.reject({ msg: 'An error has occurred.', error })
-	// })
+	return axios({
+	method: 'post',
+	url: `${process.env.REACT_APP_BACK_END_URL}/api/Events`,
+	data
+	}).then(resp => {
+	dispatch({ type: types.EVENT_CREATE_SUCCESS, payload: data })
+	return Promise.resolve(`Created event ${resp.data.number}.`)
+	}).catch(error => {
+	dispatch({ type: types.EVENT_CREATE_FAILURE, error })
+	return Promise.reject({ msg: 'An error has occurred.', error })
+	})
 }
 
 export const readEvents = () => dispatch => {
