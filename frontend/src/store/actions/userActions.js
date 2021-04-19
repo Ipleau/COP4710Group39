@@ -5,7 +5,7 @@ export const createUser = data => dispatch => {
 	return axios({
 	method: 'post',
 	url: `http://localhost:5000/users/add`,
-	data: {...data, rso: null, university: null}
+	data
 	}).then(resp => {
 	dispatch({ type: types.USER_CREATE_SUCCESS, payload: data })
 	return Promise.resolve(`Created event ${resp.data.number}.`)
@@ -18,7 +18,7 @@ export const createUser = data => dispatch => {
 export const readUser = () => dispatch => {
 	return axios({
 		method: 'get',
-		url: `${process.env.REACT_APP_BACK_END_URL}/api/Events`,
+		url: `http://localhost:5000/users/:id`
 	}).then((resp) => {
 		const data = resp.data.reduce((o,r) => {
 			o[r.id] = r
@@ -37,7 +37,7 @@ export const readUser = () => dispatch => {
 export const updateUser = data => dispatch => {
 	return axios({
 		method: 'put',
-		url: `${process.env.REACT_APP_BACK_END_URL}/api/Events`,
+		url: `http://localhost:5000/users/update/:id`,
 		data
 	})
 		.then(() => {
@@ -53,7 +53,7 @@ export const updateUser = data => dispatch => {
 export const deleteUser = id => dispatch => {
 	return axios({
 		method: 'delete',
-		url: `${process.env.REACT_APP_BACK_END_URL}/api/Events/${id}`,
+		url: `http://localhost:5000/users/:id`,
 	}).then(resp => {
 		dispatch({ type: types.USER_DELETE_SUCCESS, payload: id })
 		return Promise.resolve(`Deleted event ${resp.data}.`)

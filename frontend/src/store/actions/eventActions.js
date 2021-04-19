@@ -4,7 +4,7 @@ import types from '../types.json'
 export const createEvent = data => dispatch => {
 	return axios({
 	method: 'post',
-	url: `${process.env.REACT_APP_BACK_END_URL}/api/Events`,
+	url: `http://localhost:5000/events/add`,
 	data
 	}).then(resp => {
 	dispatch({ type: types.EVENT_CREATE_SUCCESS, payload: data })
@@ -18,7 +18,7 @@ export const createEvent = data => dispatch => {
 export const readEvents = () => dispatch => {
 	return axios({
 		method: 'get',
-		url: `${process.env.REACT_APP_BACK_END_URL}/api/Events`,
+		url: `http://localhost:5000/events/`,
 	}).then((resp) => {
 		const data = resp.data.reduce((o,r) => {
 			o[r.id] = r
@@ -37,7 +37,7 @@ export const readEvents = () => dispatch => {
 export const updateEvent = data => dispatch => {
 	return axios({
 		method: 'put',
-		url: `${process.env.REACT_APP_BACK_END_URL}/api/Events`,
+		url: `http://localhost:5000/events/update/:id`,
 		data
 	})
 		.then(() => {
@@ -53,7 +53,7 @@ export const updateEvent = data => dispatch => {
 export const deleteEvent = id => dispatch => {
 	return axios({
 		method: 'delete',
-		url: `${process.env.REACT_APP_BACK_END_URL}/api/Events/${id}`,
+		url: `http://localhost:5000/users/:id`,
 	}).then(resp => {
 		dispatch({ type: types.EVENT_DELETE_SUCCESS, payload: id })
 		return Promise.resolve(`Deleted event ${resp.data}.`)

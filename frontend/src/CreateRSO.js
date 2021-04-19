@@ -21,13 +21,17 @@ const Admin = [
   { label: "FSU", value: "FSU" },
 ];
 const Student = [
-  { label: "UCF", value: "UCF" },
-  { label: "FSU", value: "FSU" },
+  { label: "Student1", value: "Student1" },
+  { label: "Student2", value: "Student2" },
+  { label: "Student3", value: "Student3" },
+  { label: "Student4", value: "Student4" },
+  { label: "Student5", value: "Student5" },
+  { label: "Student6", value: "Student6" },
 ];
 
 const CreateRSO = ({ handleLogout }) => {
     const dispatch = useDispatch()
-    const [input, setInput] = React.useState({ title: '', description: '', university: null, admin: null, Student1: null, Student2: null, Student3: null, Student4: null, Student5: null, })
+    const [input, setInput] = React.useState({ title: '', description: '', university: '', admin: '', student1: '', student2: '', student3: '', student4: '', student5: ''})
 
     const onSubmit = React.useCallback(e => {
         e.preventDefault()
@@ -69,23 +73,23 @@ const CreateRSO = ({ handleLogout }) => {
           </div>
           <div class="formBox">
             <label for="Student">Student 1</label>
-            <Select options={Student} value={input.Student} onChange={handleInputChange('Student1')} />
+            <Select options={Student} value={input.Student} onChange={handleInputChange('student1')} />
           </div>
           <div class="formBox">
             <label for="Student">Student 2</label>
-            <Select options={Student} value={input.Student} onChange={handleInputChange('Student2')} />
+            <Select options={Student} value={input.Student} onChange={handleInputChange('student2')} />
           </div>
           <div class="formBox">
             <label for="Student">Student 3</label>
-            <Select options={Student} value={input.Student} onChange={handleInputChange('Student3')} />
+            <Select options={Student} value={input.Student} onChange={handleInputChange('student3')} />
           </div>
           <div class="formBox">
             <label for="Student">Student 4</label>
-            <Select options={Student} value={input.Student} onChange={handleInputChange('Student4')} />
+            <Select options={Student} value={input.Student} onChange={handleInputChange('student4')} />
           </div>
           <div class="formBox">
             <label for="Student">Student 5</label>
-            <Select options={Student} value={input.Student} onChange={handleInputChange('Student5')} />
+            <Select options={Student} value={input.Student} onChange={handleInputChange('student5')} />
           </div>
           
           <div class="formBox">

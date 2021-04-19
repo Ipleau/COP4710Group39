@@ -34,17 +34,17 @@ const CreateUniversity = ({ handleLogout }) => {
   return (
     <section className="CreateUniversity">
       <nav>
-        <h2>Create RSO</h2>
+        <h2>Create University</h2>
       </nav>
       <div style={{ maxWidth: 520, margin: '16px auto' }}>
         <form onSubmit={onSubmit}>
           <div class="formBox">
             <label for="title">University Name</label>
-            <input type="text" id="title" placeholder="RSO Description" value={input.title} onChange={handleInputChange('title')} />
+            <input type="text" id="title" placeholder="University Title" value={input.title} onChange={handleInputChange('title')} />
           </div>
           <div class="formBox">
             <label for="Description">Description</label>
-            <input type="text" id="Description" placeholder="Description"  />
+            <input type="text" id="Description" placeholder="Description"  value={input.description} onChange={handleInputChange('description')} />
           </div>
           <div class="formBox">
             <label for="Address">Address</label>

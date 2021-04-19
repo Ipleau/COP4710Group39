@@ -83,7 +83,7 @@ const App = () => {
       .createUserWithEmailAndPassword(email, password)
       .then((user) => {
         /* user handler */
-        dispatch(createUser({uid: user.user.uid, email: email, scopes: 'student'}))
+        dispatch(createUser({uid: user.user.uid, email: email, scopes: 'student', rso: 'none', university: 'none'}))
 
       })
       .catch((err) => {

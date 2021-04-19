@@ -21,8 +21,8 @@ const RSO = [
   { label: "FSU", value: "FSU" },
 ];
 const Category = [
-  { label: "UCF", value: "UCF" },
-  { label: "FSU", value: "FSU" },
+  { label: "Casual", value: "Casual" },
+  { label: "Formal", value: "Formal" },
 ];
 
 const Privacy = [
@@ -32,7 +32,7 @@ const Privacy = [
 ];
 const CreateEvent = ({ handleLogout }) => {
     const dispatch = useDispatch()
-    const [input, setInput] = React.useState({ title: '', description: '', university: null, rso: null, category: null, time: '', date: '', phone: '', email: '' , pricacy: null})
+    const [input, setInput] = React.useState({ title: '', description: '', university: '', rso: '', category: '', time: '', date: '', phone: '', email: '' , privacy: ''})
 
     const onSubmit = React.useCallback(e => {
         e.preventDefault()
@@ -45,7 +45,7 @@ const CreateEvent = ({ handleLogout }) => {
     const handleInputChange = React.useCallback(key => e => {
         
        const value = e?.target?.value ?? e
-
+       console.log(input)
         setInput({ ...input, [key]: value })
     }, [input])
 
@@ -94,7 +94,7 @@ const CreateEvent = ({ handleLogout }) => {
           </div>
           <div class="formBox">
             <label for="Privacy">Privacy</label>
-            <input type="text" id="Privacy" placeholder="Privacy" value={input.privacy} onChange={handleInputChange('privacy')} />
+            <Select options={Privacy} value={input.privacy} onChange={handleInputChange('privacy')} />
           </div>
           <div class="formBox">
             <button id="btn" type='submit'>Click to Add</button>

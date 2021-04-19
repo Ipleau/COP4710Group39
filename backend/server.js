@@ -20,6 +20,10 @@ connection.once('open', () => {
 
 const userRouter = require('./routes/users');
 const eventRouter = require('./routes/events');
+const universityRouter = require('./routes/universities');
+const rsoRouter = require('./routes/rsos');
+app.use('/rsos', rsoRouter)
+app.use('/universities', universityRouter)
 app.use('/users', userRouter)
 app.use('/events', eventRouter)
 

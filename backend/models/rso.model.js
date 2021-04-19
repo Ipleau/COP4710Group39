@@ -2,11 +2,10 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 //    const [input, setInput] = React.useState({ title: '', description: '', university: null, rso: null, category: null, time: '', date: '', phone: '', email: '' , pricacy: null})
-const eventSchema = new Schema({
+const rsoSchema = new Schema({
 	title: {
 		type: String,
 		required: true,
-		unique: true,
 		trim: true
 	},
 	description: {
@@ -19,47 +18,41 @@ const eventSchema = new Schema({
 		required: true,
 		trim: true
 	},
-	rso: {
+	admin: {
 		type: Object,
 		required: true,
 		trim: true
 	},
-	category: {
+	student1: {
 		type: Object,
 		required: true,
 		trim: true
 	},
-	time: {
-		type: String,
-		required: true,
-		trim: true
-	},
-	date: {
-		type: Date,
-		required: true,
-		trim: true
-	},
-	phone: {
-		type: String,
-		required: true,
-		trim: true
-	},
-	email: {
-		type: String,
-		required: true,
-		trim: true
-	},
-	privacy: {
+	student2: {
 		type: Object,
 		required: true,
 		trim: true
 	},
-
+	student3: {
+		type: Object,
+		required: true,
+		trim: true
+	},
+	student4: {
+		type: Object,
+		required: true,
+		trim: true
+	},
+	student5: {
+		type: Object,
+		required: true,
+		trim: true
+	},
 }, {
 
 	timestamps: true
 });
 
-const Event = mongoose.model('Event', eventSchema);
+const Rso = mongoose.model('Rso', rsoSchema);
 
-module.exports = Event;
+module.exports = Rso;

@@ -18,13 +18,13 @@ const tabs = [
   [{ name: "Create Event", route: "/CreateEvent" }],
   [
     { name: "Create RSO", route: "/CreateRSO" },
-    { name: "View Events", route: "/ViewEvent" },
+    { name: "View Events", route: "/ViewEvents" },
   ],
 ];
 const scopes = [
-  { label: "Student", value: 0 },
+  { label: "Student", value: 2 },
   { label: "Admin", value: 1 },
-  { label: "SuperAdmin", value: 2 },
+  { label: "SuperAdmin", value: 0 },
 ];
 
 function Navbar({ handleLogout, role }) {

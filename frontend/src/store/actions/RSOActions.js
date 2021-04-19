@@ -2,23 +2,23 @@ import axios from 'axios'
 import types from '../types.json'
 
 export const createRSO = data => dispatch => {
-	// return axios({
-	// 	method: 'post',
-	// 	url: `${process.env.REACT_APP_BACK_END_URL}/api/Events`,
-	// 	data
-	// }).then(resp => {
-		return dispatch({ type: types.RSO_CREATE_SUCCESS, payload: data })
-	// 	return Promise.resolve(`Created event ${resp.data.number}.`)
-	// }).catch(error => {
-	// 	dispatch({ type: types.RSO_CREATE_FAILURE, error })
-	// 	return Promise.reject({ msg: 'An error has occurred.', error })
-	// })
+	return axios({
+	method: 'post',
+	url: `http://localhost:5000/rsos/add`,
+	data
+	}).then(resp => {
+	dispatch({ type: types.RSO_CREATE_SUCCESS, payload: data })
+	return Promise.resolve(`Created event ${resp.data.number}.`)
+	}).catch(error => {
+	dispatch({ type: types.RSO_CREATE_FAILURE, error })
+	return Promise.reject({ msg: 'An error has occurred.', error })
+	})
 }
 
 export const readRSO = () => dispatch => {
 	return axios({
 		method: 'get',
-		url: `${process.env.REACT_APP_BACK_END_URL}/api/Events`,
+		url: `http://localhost:5000/rsos/`,
 	}).then((resp) => {
 		const data = resp.data.reduce((o,r) => {
 			o[r.id] = r
@@ -37,7 +37,7 @@ export const readRSO = () => dispatch => {
 export const updateRSO = data => dispatch => {
 	return axios({
 		method: 'put',
-		url: `${process.env.REACT_APP_BACK_END_URL}/api/Events`,
+		url: `http://localhost:5000/rsos/update/:id`,
 		data
 	})
 		.then(() => {
@@ -53,7 +53,7 @@ export const updateRSO = data => dispatch => {
 export const deleteRSO = id => dispatch => {
 	return axios({
 		method: 'delete',
-		url: `${process.env.REACT_APP_BACK_END_URL}/api/Events/${id}`,
+		url: `http://localhost:5000/rsos/:id`,
 	}).then(resp => {
 		dispatch({ type: types.RSO_DELETE_SUCCESS, payload: id })
 		return Promise.resolve(`Deleted event ${resp.data}.`)
