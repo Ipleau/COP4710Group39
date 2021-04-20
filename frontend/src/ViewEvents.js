@@ -28,9 +28,10 @@ const GrabEvents = () =>
             </tr>
           </thead>
           <tbody>
-          {events.map((event,i)=> {
+          {Object.keys(events).map(k=> {
+          	const event = events[k]
           	return(
-          		<tr key={i}>
+          		<tr key={k}>
           			<th>{event.title}</th>
           			<th>{event.description}</th>
           			<th>{event.university.value}</th>

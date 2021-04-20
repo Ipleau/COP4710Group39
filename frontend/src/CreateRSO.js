@@ -17,12 +17,13 @@ const Universities = [
   { label: "FSU", value: "FSU" },
 ];
 const Admin = [
-  { label: "UCF", value: "UCF" },
-  { label: "FSU", value: "FSU" },
+  { label: "ipleauwps@gmail.com", value: "ipleauwps@gmail.com" },
+  { label: "shadysaleh@gmail.com", value: "shadysaleh@gmail.com" },
+
 ];
 const Student = [
-  { label: "Student1", value: "Student1" },
-  { label: "Student2", value: "Student2" },
+  { label: "Ipleau@knights.ucf.edu", value: "ipleau@knights.ucf.edu" },
+  { label: "test@gmail.com", value: "test@gmail.com" },
   { label: "Student3", value: "Student3" },
   { label: "Student4", value: "Student4" },
   { label: "Student5", value: "Student5" },
